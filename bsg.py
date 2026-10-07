@@ -11,7 +11,7 @@ from typing import Optional
 import httpx
 from fastapi import FastAPI
 from aiogram import Bot, Dispatcher, F
-from aiogram.enums import ParseMode
+from aiogram.client.default import DefaultBotProperties
 from aiogram.filters import Command, CommandStart
 from aiogram.fsm.context import FSMContext
 from aiogram.fsm.state import State, StatesGroup
@@ -26,9 +26,9 @@ from sqlalchemy import create_engine
 # 1. НАСТРОЙКИ — СЮДА МОЖНО ВСТАВИТЬ КЛЮЧИ ПРЯМО В КОД.
 #    Для Render лучше использовать Environment Variables.
 # ============================================================
-BOT_TOKEN = os.getenv("BOT_TOKEN", "8924692482:AAFb_nK6_gcph2kslZh5Ge1K_y3gdgSKJJQ")
-CRYPTO_PAY_TOKEN = os.getenv("643224:AA0wshl4254RctN7BpPE7Et7ABuMeF23kqd", "PASTE_CRYPTO_PAY_API_TOKEN_HERE")
-XROCKET_API_TOKEN = os.getenv("XROCKET_API_TOKEN", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6IjMwMzk0MiIsImp0aSI6ImFwcDozMDM5NDI6YzdkNjhlYjQtY2U0Yy00OWZlLWIyZDgtZWVmYTBlYjU3MjE3IiwiaWF0IjoxNzkxMzYzNDY0fQ.nMhLODuFpDyBZGXOhMW-KQKPbdJFG776U57L2i9p3fE")
+BOT_TOKEN = os.getenv("BOT_TOKEN", "PASTE_TELEGRAM_BOT_TOKEN_HERE")
+CRYPTO_PAY_TOKEN = os.getenv("CRYPTO_PAY_TOKEN", "PASTE_CRYPTO_PAY_API_TOKEN_HERE")
+XROCKET_API_TOKEN = os.getenv("XROCKET_API_TOKEN", "PASTE_XROCKET_PAY_API_TOKEN_HERE")
 
 # ID администраторов через запятую: ADMIN_IDS=123456789,987654321
 ADMIN_IDS = {int(x) for x in os.getenv("ADMIN_IDS", "123456789").split(",") if x.strip().isdigit()}
@@ -53,7 +53,7 @@ TECH_SUPPORT_URL = "https://t.me/devjeb"
 IMPORTANT_SUPPORT_URL = "https://t.me/aliseglassss"
 PROJECT_URL = "https://t.me/portalbsg_bot"
 ARBITRAGE_URL = "https://telegra.ph/Arbitrazh-kak-vyzvat-i-kak-prohodit-01-04"
-FORBIDDEN_DEALS_URL = "https://telegra.ph/Zapreschchyonnyye-sdelki-01-04"
+FORBIDDEN_DEALS_URL = "https://telegra.ph/Zapreshchchyonnyye-sdelki-01-04"
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s | %(levelname)s | %(message)s")
 log = logging.getLogger("escrow_bot")
@@ -485,7 +485,7 @@ def wallet_text(u: User) -> str:
 # ============================================================
 # BOT
 # ============================================================
-bot = Bot(BOT_TOKEN, parse_mode=ParseMode.HTML)
+bot = Bot(BOT_TOKEN, default=DefaultBotProperties(parse_mode="HTML"))
 dp = Dispatcher(storage=MemoryStorage())
 
 
