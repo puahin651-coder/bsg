@@ -26,12 +26,12 @@ from sqlalchemy import create_engine
 # 1. НАСТРОЙКИ — СЮДА МОЖНО ВСТАВИТЬ КЛЮЧИ ПРЯМО В КОД.
 #    Для Render лучше использовать Environment Variables.
 # ============================================================
-BOT_TOKEN = os.getenv("BOT_TOKEN", "PASTE_TELEGRAM_BOT_TOKEN_HERE")
-CRYPTO_PAY_TOKEN = os.getenv("CRYPTO_PAY_TOKEN", "PASTE_CRYPTO_PAY_API_TOKEN_HERE")
-XROCKET_API_TOKEN = os.getenv("XROCKET_API_TOKEN", "PASTE_XROCKET_PAY_API_TOKEN_HERE")
+BOT_TOKEN = os.getenv("BOT_TOKEN", "8924692482:AAFb_nK6_gcph2kslZh5Ge1K_y3gdgSKJJQ")
+CRYPTO_PAY_TOKEN = os.getenv("CRYPTO_PAY_TOKEN", "643224:AA0wshl4254RctN7BpPE7Et7ABuMeF23kqd")
+XROCKET_API_TOKEN = os.getenv("XROCKET_API_TOKEN", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6IjMwMzk0MiIsImp0aSI6ImFwcDozMDM5NDI6YzdkNjhlYjQtY2U0Yy00OWZlLWIyZDgtZWVmYTBlYjU3MjE3IiwiaWF0IjoxNzkxMzYzNDY0fQ.nMhLODuFpDyBZGXOhMW-KQKPbdJFG776U57L2i9p3fE")
 
 # ID администраторов через запятую: ADMIN_IDS=123456789,987654321
-ADMIN_IDS = {int(x) for x in os.getenv("ADMIN_IDS", "123456789").split(",") if x.strip().isdigit()}
+ADMIN_IDS = {int(x) for x in os.getenv("ADMIN_IDS", "8066395175").split(",") if x.strip().isdigit()}
 
 # Комиссия сервиса по умолчанию — 3% как на скриншотах.
 DEFAULT_COMMISSION = Decimal(os.getenv("COMMISSION_PERCENT", "3"))
