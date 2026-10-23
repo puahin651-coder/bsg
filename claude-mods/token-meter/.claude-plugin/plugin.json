@@ -1,0 +1,1 @@
+{ "name": "token-meter", "version": "0.1.0", "description": "Live token usage band above the prompt: context window fill and rate limits", "types": "./types/index.d.ts" }
